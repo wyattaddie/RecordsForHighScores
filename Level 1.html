@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <style>
+        #input5{
+            padding-right: 3px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <body style="background-color: black">
+        <table style="width: 40%;">
+            <tr>
+                <th>Time</th>
+                <th>Money</th>
+                <th>Kills</th>
+            </tr>
+            <tr></tr>
+        </table>
+        <input type="number" id="input1" placeholder="Number of spiders">
+        <input type="number" id="input2" placeholder="Number of snakes">
+        <input type="number" id="input3" placeholder="Number of bats">
+        <input type="number" id="input4" placeholder="Number of shop keepers">
+        <input type="number" id="input5" placeholder="Number of cavemen">
+        <input type="number" id="input6" placeholder="Number of giant spiders">
+        <button onclick="you()">Submit</button>
+        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        <script type="application/ecmascript">
+            var xValues = ["Spider", "Snake", "Bat", "Shop Keeper", "Caveman", "Giant Spider"];
+            var barColors = ["red","green","purple","white","yellow","maroon"];
+        
+        function you() {
+            new Chart("myChart", {
+                type: "bar",
+                data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: [document.getElementById('input1').value, document.getElementById('input2').value, document.getElementById('input3').value, document.getElementById('input4').value, document.getElementById('input5').value, document.getElementById('input6').value]
+                }]
+                },
+                options: {
+                    legend: {display: false},
+                    title: {
+                        display: true,
+                        text: "Kill Record"
+                    }
+                }
+            })
+        }
+        </script>
+    </body>
+</html>
